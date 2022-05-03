@@ -1,0 +1,89 @@
+<div class="container mt-4">
+
+  <div class="card">
+    <div class="card-body">
+
+      <span class="h2" text-align:center > LISTADO DE EMPLEADOS</span>
+      <p></p>
+      <h5>FILTRAR INFORMACIÓN (Vacunado/No Vacunado)</h5>
+      <div>
+        <input type="text" class="form-control" name="filterPost" placeholder="Buscar...." [(ngModel)]="filterEstado">
+      </div>
+      <h5>FILTRAR TIPO DE VACUNA</h5>
+      <div>
+        <input type="text" class="form-control" name="" placeholder="Buscar...." [(ngModel)]="filterTipo">
+     
+      </div>
+      
+
+      <!-- <h3>FILTRO Nombre</h3>
+      <div>
+        <input type="text" class="form-control" name="filterPost" placeholder="Buscar...." [(ngModel)]="filterNombre">
+      </div> -->
+    <!--   <div>
+        <h3>FILTRO CEDULA</h3>
+        <input type="text" class="form-control" name="" placeholder="Buscar...." [(ngModel)]="filterCedula">
+      </div> -->
+      <!-- <div>
+
+        <select placeholder="Nombres" name="miselect" [(ngModel)]="filterNombre">
+          <option [value]=" " id="" *ngFor="let empleados of empleados">{{ empleados.nombre}}</option>
+ </select>
+      </div> -->
+
+      <p></p>
+      <button class="btn btn-secondary btn-lg float-right" routerLink="/create-empleados">AGREGAR</button>
+      <p></p>
+      <h5 style="margin-top: 30px;" *ngIf="empleados.length == 0">Ningun empleado registrado</h5>
+
+      <table *ngIf="empleados.length > 0" class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>CÉDULA</th>
+            <th>NOMBRES</th>
+            <th>APELLIDOS</th>
+            <th>CORREO</th>
+            <!-- <th>USUARIO</th>
+            <th>CONTRASEÑA</th> -->
+            <th>FECHA NACIMIENTO</th>
+            <th>DIRECCION DOMICILIO</th>
+            <th>TELEFONO MOVIL</th>
+            <th>ESTADO</th>
+            <th>TIPO VACUNA</th>
+            <th>FECHA VACUNACION</th>
+            <th>NUMERO DOSIS</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empleados of empleados | filter: filterNombre | filter: filterCedula |filter:filterEstado | filter:filterTipo">
+            <td>{{ empleados.cedula}}</td>
+            <td>{{ empleados.nombre}}</td>
+            <td>{{empleados.apellido}}</td>
+            <!--  <td>{{empleados.correo}}</td>
+            <td>{{empleados.usuario}}</td> -->
+            <td>{{empleados.contrasena}}</td>
+            <td>{{empleados.fecha_nac}}</td>
+            <td>{{empleados.direccion}}</td>
+            <td>{{empleados.telefono}}</td>
+            <td>{{empleados.estado_vacuna}}</td>
+            <td>{{empleados.tipo_vacuna}}</td>
+            <td>{{empleados.fecha_vacuna}}</td>
+            <td>{{empleados.nro_vacuna}}</td>
+
+            <td>
+              <i class="fas fa-edit fa-lg text-info mr-2" [routerLink]="['/edit-empleados/', empleados.id]"></i>
+            </td>
+            <td>
+              <i (click)="eliminarEmpleado(empleados.id)" class="fas fa-trash-alt fa.lg text-danger"></i>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

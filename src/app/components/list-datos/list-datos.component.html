@@ -1,0 +1,58 @@
+<div class="container mt-4">
+
+    <div class="card">
+        <div class="card-body">
+<div>
+    <label for="">Cliente: {{filterNombre}} </label>
+</div>
+            <div>
+
+                <select placeholder="Nombres" name="miselect" [(ngModel)]="filterNombre">
+                    <option [value]=" " id="" *ngFor="let empleados of empleados">{{ empleados.nombre}}</option>
+
+                </select>
+            </div>
+         
+            <table *ngIf="empleados.length > 0" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>CÉDULA</th>
+                        <th>NOMBRES</th>
+                        <th>APELLIDOS</th>
+                        <th>CORREO</th>
+                        <th>USUARIO</th>
+                        <th>CONTRASEÑA</th> 
+                        <th></th>
+                        <th>Actualizar</th>
+                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let empleados of empleados | filter: filterNombre | filter: filterCedula">
+                        <td>{{ empleados.cedula}}</td>
+                        <td>{{ empleados.nombre}}</td>
+                        <td>{{empleados.apellido}}</td>
+                        <td>{{empleados.correo}}</td>
+                        <td>{{empleados.usuario}}</td>
+                        <td>{{empleados.contrasena}}</td>
+                        <!-- <td>{{empleados.fecha_nac}}</td> -->
+
+                        <td>
+                            <i class="fas fa-edit fa-lg text-info mr-2"
+                        
+                                [routerLink]="['/create-datos/', empleados.id]"></i>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

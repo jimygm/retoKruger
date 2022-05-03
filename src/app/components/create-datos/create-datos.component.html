@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+
+            <div class="card">
+                <div class="card-body">
+                    <form class="mt-4" [formGroup]="createEmpleado" (ngSubmit)="agregarEditarEmpleado()">
+
+                        <div class="row">
+                            <h4></h4>
+                            <form action=""></form>
+                            <div class="mt-3">
+                                <button type="text" class="btn btn-secondary btn-lg mr-3"
+                                    routerLink="/list-datos">Volver</button>
+                                <button type="submit" class="btn btn-dark btn-lg float-right">Agregar</button>
+
+                            </div>
+                            <div>
+                                <h4>Fecha de nacimiento</h4>
+                                <input type="date" class="form-control form-control-lg mt-3" formControlName="fecha_nac"
+                                    placeholder="Fecha de nacimiento">
+                            </div>
+                            <div>
+
+                                <h4>Dirección de domicilio</h4>
+
+                                <input type="text" class="form-control form-control-lg mt-3" formControlName="direccion"
+                                    placeholder="Dirección de domicilio">
+                            </div>
+                            <div>
+                                <h4>Teléfono móvil</h4>
+                                <input type="text" class="form-control form-control-lg mt-3" formControlName="telefono"
+                                    minlength="10" maxlength="10" placeholder="Teléfono móvil">
+                            </div>
+                            <div>
+                                <h4>Fecha de vacunación</h4>
+                                <input type="date" class="form-control form-control-lg mt-3"
+                                    formControlName="fecha_vacuna" placeholder="Fecha de vacunación">
+                            </div>
+
+                        </div>
+                        <div>
+                            <p></p>
+                            <p></p>
+                            <h3>DATOS VACUNA (Actual)</h3>
+                            <label>Estado de vacunación actual:<input type="text"
+                                    class="form-control form-control-lg mt-3" formControlName="estado_vacuna"
+                                    placeholder="Ningún Estado" readonly></label>
+                            <label>Tipo de vacuna actual:<input type="text" placeholder="Ningún Tipo"
+                                    class="form-control form-control-lg mt-3" formControlName="tipo_vacuna"
+                                    readonly></label>
+                            <label>Número de dosis actual:<input type="text" placeholder="Ninguna dosis"
+                                    class="form-control form-control-lg mt-3" formControlName="nro_vacuna"
+                                    readonly></label>
+
+
+                        </div>
+
+                    </form>
+                    <p></p>
+                    <p></p>
+                    <h3>ACTUALIZAR INFORMACIÓN DE VACUNA</h3>
+                    <div>
+                        <h4>Estado de vacunación</h4>
+                        <!--  <select name="estado_vacuna" id="">
+                            <option value="">----</option>
+                            <option value="">Vacunado</option>
+                            <option value="">No vacunado</option>
+                        </select> -->
+                        <select name="" [(ngModel)]="selectedEstado">
+                            <option *ngFor="let item of listEstadoVac" [ngValue]="item">
+                                {{item.name}}</option>
+                        </select>
+                        <p></p>
+                    </div>
+                    <div>
+                        <h4>Tipo de vacuna</h4>
+                        <select name="sexo" [(ngModel)]="selectedTipo">
+                            <option *ngFor="let item of listTipoVac" [ngValue]="item">
+                                {{item.name}}</option>
+                        </select>
+                        <p></p>
+
+
+
+                    </div>
+                    <div>
+                        <h4>Número de dosis</h4>
+                        <select name="sexo" [(ngModel)]="selectedOption1">
+                            <option *ngFor="let item of listNroDosis" [ngValue]="item">
+                                {{item.name}}</option>
+                        </select>
+                        <p></p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
